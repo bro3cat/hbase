@@ -3,10 +3,10 @@ package test;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;
-import poll.admin.HBaseAdmin;
-import poll.conf.HBaseConfigNaive;
-import poll.connection.HBaseConnectionBase;
-import poll.connection.HConnection;
+import pool.admin.HBaseAdmin;
+import pool.conf.HBaseConfigNaive;
+import pool.connection.HBaseConnectionBase;
+import pool.connection.HConnection;
 
 import java.io.IOException;
 import java.util.ArrayList;

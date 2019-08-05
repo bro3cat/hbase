@@ -1,6 +1,6 @@
-package poll.admin;
+package pool.admin;
 
-import poll.connection.HConnection;
+import pool.connection.HConnection;
 
 import java.io.IOException;
 

@@ -1,6 +1,6 @@
-package poll.connection;
+package pool.connection;
 
-import poll.conf.HConfiguration;
+import pool.conf.HConfiguration;
 import org.apache.hadoop.hbase.client.Connection;
 
 /**

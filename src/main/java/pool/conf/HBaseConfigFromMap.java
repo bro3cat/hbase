@@ -1,4 +1,4 @@
-package poll.conf;
+package pool.conf;
 
 import java.io.File;
 import java.util.Map;

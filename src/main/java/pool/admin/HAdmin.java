@@ -1,7 +1,7 @@
-package poll.admin;
+package pool.admin;
 
 import org.apache.hadoop.hbase.client.Admin;
-import poll.connection.HConnection;
+import pool.connection.HConnection;
 
 /**
  * 获取HBaseConnection 的admin
