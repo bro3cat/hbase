@@ -13,6 +13,7 @@ public class HBaseAdmin extends HAdmin {
     protected void createAdmin(HConnection hConnection) {
         try {
             this.admin = hConnection.getConnection().getAdmin();
+            this.connection = hConnection.getConnection();
         } catch (IOException e) {
             e.printStackTrace();
         }

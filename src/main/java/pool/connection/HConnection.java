@@ -3,6 +3,8 @@ package pool.connection;
 import pool.conf.HConfiguration;
 import org.apache.hadoop.hbase.client.Connection;
 
+import java.io.IOException;
+
 /**
  * 获取HBaseConnection的基本类
  */
@@ -25,6 +27,14 @@ public abstract class HConnection {
     public HConnection(HConfiguration hConfiguration) {
         configuration = hConfiguration;
         connection = createConnection();
+    }
+
+    public void close() {
+        try {
+            connection.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private HConnection() {

@@ -17,6 +17,10 @@ public class Test extends Configuration {
         HConnection conn = new HBaseConnectionBase(new HBaseConfigNaive("nm"));
         new Test().test(conn);
 
+
+        HConnection conn2 = new HBaseConnectionBase(new HBaseConfigNaive("10.0.112.216"));
+        System.out.println(conn2);
+
 //        HBaseConfigFromPropertyFile conf = new HBaseConfigFromPropertyFile(new File(""));
 //        conf = new HBaseConfigFromPropertyFile(new File(""));
 
