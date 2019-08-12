@@ -7,33 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e973cd73-4e07-43a7-8256-5ece58dd4168" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_2_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_11.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fondations/Property.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fondations/StaticConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pool/admin/HAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pool/admin/HAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pool/admin/HBaseAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pool/admin/HBaseAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pool/connection/HConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pool/connection/HConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/hadooputils.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fondations/Property.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fondations/StaticConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hbase-site.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/poll/admin/HAdmin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/poll/admin/HBaseAdmin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/poll/conf/HBaseConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/poll/conf/HBaseConfigFromMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/poll/conf/HBaseConfigFromPropertyFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/poll/conf/HBaseConfigFromResources.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/poll/conf/HBaseConfigNaive.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/poll/conf/HConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/poll/connection/HBaseConnectionBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/poll/connection/HConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Test.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,10 +46,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -202,10 +176,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$" />
-    </ignored-roots>
   </component>
 </project>

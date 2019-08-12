@@ -1,7 +1,10 @@
 import common.Property;
 import common.StaticConfiguration;
+import dao.DBCommonIn;
 import dao.SqlList;
 import dao.mysql.MysqlCommon;
+import pool.connection.DBConnectionIn;
+import pool.connection.MysqlConnection;
 
 import java.util.*;
 
@@ -27,7 +30,17 @@ public class Test {
             list2.add(list);
             if (i % 1000 == 0) System.out.println(i);
         }
-        mc.insertMany(list2);
+//        mc.insertMany(list2);
 
+        DBConnectionIn conn = new MysqlConnection();
+
+        DBCommonIn dao = new MysqlCommon("test1", conn) {
+        };
+        new Test().test(dao, list2);
+
+    }
+
+    public void test(DBCommonIn dao, List list) {
+        dao.insertMany(list);
     }
 }

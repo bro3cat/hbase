@@ -11,7 +11,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
       <module name="hadooputils" target="6" />
-      <module name="tohb" target="6" />
+      <module name="tohb" target="7" />
     </bytecodeTargetLevel>
   </component>
 </project>

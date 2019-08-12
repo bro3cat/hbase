@@ -16,6 +16,10 @@ public class Property {
 
     private Properties loadProperties = new Properties();
 
+//    protected String propertyFilePath;
+
+//    protected Property property = null;
+
     static {
         try {
             properties.load(new FileInputStream(new File(StaticConfiguration.mysql_property)));
@@ -32,6 +36,7 @@ public class Property {
             e.printStackTrace();
         }
     }
+
 
 //    private static void loadFile(File propertyFile){
 //

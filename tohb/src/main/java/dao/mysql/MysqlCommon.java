@@ -2,25 +2,48 @@ package dao.mysql;
 
 import dao.DBCommonIn;
 import org.junit.Test;
-import pool.connection.DBConnection;
+import pool.connection.DBConnectionImp;
+import pool.connection.DBConnectionIn;
 import pool.connection.MysqlConnection;
-import sun.applet.Main;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
+/**
+ * mysql数据库的实现
+ */
 public abstract class MysqlCommon implements DBCommonIn {
 
-
+    /**
+     * tableName作爲本类的内置属性，表示要对tableName表进行操作
+     */
     protected String tableName;
-    protected Connection connection;
+    /**
+     * connection为内置对象，为数据库连接，
+     * 默认MysqlCommon包含<一个表,一个数据库连接>
+     */
+    protected DBConnectionIn connection;
 
+    /**
+     * 构造函数用来初始化表名tableName和内部连接connection
+     * 提供默认的配置的connection
+     *
+     * @param tableName
+     */
     public MysqlCommon(String tableName) {
         this.tableName = tableName;
-        connection = new MysqlConnection().getConnection();
+        this.connection = new MysqlConnection();
+    }
+
+    /**
+     * 构造函数用来初始化表名tableName和内部连接connection
+     *
+     * @param tableName    设定需要管理的表的名字
+     * @param dbConnection 自己创建的connection
+     */
+    public MysqlCommon(String tableName, DBConnectionIn dbConnection) {
+        this.tableName = tableName;
+        this.connection = dbConnection;
     }
 
 
@@ -48,10 +71,9 @@ public abstract class MysqlCommon implements DBCommonIn {
         for (index = 0; index < length; ++index)
             sql += "?,";
         sql = sql.substring(0, sql.length() - 1) + ")";
-//        sql += ")";
         System.out.println(sql);
         try {
-            connection.setAutoCommit(false);
+            connection.getConnection().setAutoCommit(false);
             PreparedStatement pstmt = connection.prepareStatement(sql);
             int list_index = 0;
 
@@ -69,7 +91,7 @@ public abstract class MysqlCommon implements DBCommonIn {
                     System.out.println("excuting-----------------------");
                     long t3 = System.currentTimeMillis();
                     pstmt.executeBatch();
-                    connection.commit();
+                    connection.getConnection().commit();
                     pstmt.clearBatch();
                     list_index = 0;
                     long t4 = System.currentTimeMillis();
@@ -79,7 +101,7 @@ public abstract class MysqlCommon implements DBCommonIn {
             }
             pstmt.executeBatch();
             t2 = System.currentTimeMillis();
-            System.out.println("总体上"+(t2 - t1));
+            System.out.println("总体上" + (t2 - t1));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -98,11 +120,11 @@ public abstract class MysqlCommon implements DBCommonIn {
 
     @Test
     public void test1() {
-        Connection conn = connection;
+//        Connection conn = connection;
         PreparedStatement stmt = null;
         long t1 = System.currentTimeMillis();
         try {
-            stmt = conn.prepareStatement("insert into test1 values(?,?,?)");
+            stmt = connection.prepareStatement("insert into test1 values(?,?,?)");
             for (int i = 0; i < 10000; i++) {
                 stmt.setString(1, i + "");
                 stmt.setString(2, i + "");

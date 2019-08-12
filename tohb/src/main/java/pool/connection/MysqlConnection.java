@@ -1,41 +1,38 @@
 package pool.connection;
 
 import common.Property;
+import common.SqlProperty;
 import common.StaticConfiguration;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class MysqlConnection extends DBConnection {
+public class MysqlConnection extends DBConnectionImp {
 
-    private Property property;//= new Property(StaticConfiguration.mysql_property);
+    private SqlProperty property;//= new Property(StaticConfiguration.mysql_property);
+
+
+    public MysqlConnection() {
+        super();
+    }
 
     @Override
     protected void createConnection() {
-        property = new Property(StaticConfiguration.mysql_property);
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://"
-                            + property.getLoadProperty("db.host")
-                            + ":"
-                            + property.getLoadProperty("db.port")
-                            + "/"
-                            + property.getLoadProperty("db.name")
-                            + "?useSSL=false&serverTimezone=UTC",
-                    property.getLoadProperty("db.user"),
-                    property.getLoadProperty("db.password"));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+
+        property = new SqlProperty(StaticConfiguration.mysql_property);
+        createConnection(property.url(), property.user(), property.password());
 
     }
 
-    public static void main(String[] args) {
-        new MysqlConnection().createConnection();
+    @Override
+    protected void createConnection(String url, String user, String pwd) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println(url);
+            connection = DriverManager.getConnection(url, user, pwd);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
