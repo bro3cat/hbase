@@ -7,7 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e973cd73-4e07-43a7-8256-5ece58dd4168" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/common/SqlProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/common/SqlProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/dao/DBCommonIn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/dao/mysql/MysqlCommon.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/dao/mysql/MysqlCommon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/common/SqlProperty.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/common/SqlProperty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/dao/DBCommonIn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/dao/mysql/MysqlCommon.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/dao/mysql/MysqlCommon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/test-classes/Test$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/test-classes/Test$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/test-classes/Test$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/test-classes/Test$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/test-classes/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/tohb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/tohb.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,18 +65,19 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="conf" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\workspaces\java\ideal\hbase\src\main\java\fondations" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dao" />
       <recent name="dao.mysql" />
       <recent name="conf" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="conf" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\workspaces\java\ideal\hbase\src\main\java\fondations" />
     </key>
   </component>
   <component name="RunDashboard">

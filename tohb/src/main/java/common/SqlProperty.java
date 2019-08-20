@@ -27,7 +27,7 @@ public class SqlProperty extends Property {
         String host = getLoadProperty("db.host");
         String port = getLoadProperty("db.port");
         String name = getLoadProperty("db.name");
-        url = url + host + ":" + port + "/" + name + "?useSSL=false&serverTimezone=UTC";
+        url = url + host + ":" + port + "/" + name + "?useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&characterEncoding=UTF-8&autoReconnect=true";
         return url;
     }
 

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 数据库通用接口，因为目前只包含从数据库到HBase数据库的数据转移，所以事实上因该以读数据为主，insert和insertMany主要是为了测试用
  */
-public interface DBCommonIn {
+public interface DBCommonDaoIn {
 
     /**
      * 想数据库中插入一条数据
@@ -20,7 +20,7 @@ public interface DBCommonIn {
      *
      * @param list
      */
-    public void insertMany(List<List<String>> list);
+    public void insertMany(List<List<String>> list,int batchSize);
 
     /**
      * 读取一条数据
@@ -38,4 +38,5 @@ public interface DBCommonIn {
     public ResultSet readTable();
 
 //    public ResultSet readTable(List<String> columns, List<String> criteria);
+    public long test(List<List<String>> list,int batchSize);
 }
