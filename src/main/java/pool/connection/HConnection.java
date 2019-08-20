@@ -1,7 +1,9 @@
 package pool.connection;
 
-import pool.conf.HConfiguration;
+import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
+import pool.conf.HConfiguration;
 
 import java.io.IOException;
 
@@ -35,6 +37,15 @@ public abstract class HConnection {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Admin getAdmin() {
+        try {
+            return connection.getAdmin();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private HConnection() {

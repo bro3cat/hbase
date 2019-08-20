@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -36,6 +37,8 @@ public interface DBCommonDaoIn {
      * @return
      */
     public ResultSet readTable();
+
+    public DatabaseMetaData getMetaData();
 
 //    public ResultSet readTable(List<String> columns, List<String> criteria);
     public long test(List<List<String>> list,int batchSize);

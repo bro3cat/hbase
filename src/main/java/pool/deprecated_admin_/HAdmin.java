@@ -1,8 +1,11 @@
-package pool.admin;
+package pool.deprecated_admin_;
 
+import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.Connection;
 import pool.connection.HConnection;
+
+import java.io.IOException;
 
 /**
  * 获取HBaseConnection 的admin
@@ -22,6 +25,25 @@ public abstract class HAdmin {
 
     public HAdmin(HConnection hConnection) {
         createAdmin(hConnection);
+    }
+
+
+    public void disableTable(TableName tableName) {
+        try {
+            if (admin.isTableAvailable(tableName))
+                admin.disableTable(tableName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ableTable(TableName tableName){
+        try {
+            if(admin.isTableDisabled(tableName))
+                admin.enableTable(tableName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Connection getConnection() {

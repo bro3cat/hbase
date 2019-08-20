@@ -3,7 +3,7 @@ package test;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;
-import pool.admin.HBaseAdmin;
+import pool.deprecated_admin_.HBaseAdmin;
 import pool.conf.HBaseConfigNaive;
 import pool.connection.HBaseConnectionBase;
 import pool.connection.HConnection;

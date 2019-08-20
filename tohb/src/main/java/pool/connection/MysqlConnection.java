@@ -4,17 +4,58 @@ import common.Property;
 import common.SqlProperty;
 import common.StaticConfiguration;
 
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 public class MysqlConnection extends DBConnectionImp {
 
     private SqlProperty property;//= new Property(StaticConfiguration.mysql_property);
 
+    /**
+     * test
+     */
+
+    DatabaseMetaData metaData = null;
+
 
     public MysqlConnection() {
         super();
+        try {
+            metaData = connection.getMetaData();
+            System.out.println(metaData);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
+    public static void main(String[] args) {
+        MysqlConnection connection = new MysqlConnection();
+        try {
+            ResultSet tableSet = connection.metaData.getTables("test", "test", "test1", new String[]{"TABLE"});
+            ResultSet colSet = connection.metaData.getColumns("%", "casia", "test", "%");
+            while (colSet.next()) {
+                String colName = colSet.getString("COLUMN_NAME");
+                String colType = colSet.getString("TYPE_NAME");
+//                System.out.println(colName + "->:" + colType);
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        List list = connection.getTableSet("test");
+//        for (Object s : list) System.out.println(s);
+        Map<String, String> map = connection.getColumnSet("test", "test1");
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.printf("%5s : %s\n", entry.getKey(), entry.getValue());
+        }
+    }
+
 
     @Override
     protected void createConnection() {
@@ -35,4 +76,10 @@ public class MysqlConnection extends DBConnectionImp {
             e.printStackTrace();
         }
     }
+
+
+//    @Override
+//    public ResultSet getColumnSet(String tableName) {
+//        return null;
+//    }
 }

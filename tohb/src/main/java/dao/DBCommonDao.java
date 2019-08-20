@@ -3,10 +3,7 @@ package dao;
 import pool.connection.DBConnectionIn;
 import pool.connection.MysqlConnection;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
 
 /**
@@ -224,6 +221,11 @@ public class DBCommonDao implements DBCommonDaoIn {
 
     @Override
     public ResultSet readTable() {
+        return null;
+    }
+
+    @Override
+    public DatabaseMetaData getMetaData() {
         return null;
     }
 

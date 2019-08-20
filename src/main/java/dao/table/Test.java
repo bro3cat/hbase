@@ -1,14 +1,15 @@
 package dao.table;
 
 import org.apache.hadoop.hbase.client.Scan;
-import pool.conf.HBaseConfig;
 
 import java.io.IOException;
 
 public class Test {
 
     public static void main(String[] args) throws IOException {
+
         HBaseTableDaoIn h = new HBaseTableDaoNaiveImpl("hcdata12");
+        h.addColumnFamily("he");
 //        new Test().test(h, new Scan());
 //        new HBaseTableDaoNaiveImpl("hcdata12");//.scanTable(new Scan());
         Test test = new Test();
