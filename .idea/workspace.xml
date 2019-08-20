@@ -7,42 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e973cd73-4e07-43a7-8256-5ece58dd4168" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/hbase/HBaseCommonDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/hbase/HBaseCommonDaoIn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pool/connection/HBaseConnectionStatic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pool/deprecated_admin_/HBaseAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tohb/src/main/java/service/BaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tohb/src/main/java/service/Db2HBaseTransService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tohb/src/main/java/service/TestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tohb/src/main/java/dao/DBDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tohb/src/main/java/dao/DBDaoIn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tohb/src/main/java/entity/DBTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/hbase/HBaseInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/hbase/HBaseModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/table/HBaseTableDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/table/HBaseTableDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/table/HBaseTableDaoIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/table/HBaseTableDaoIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/table/HBaseTableDaoNaiveImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/table/HBaseTableDaoNaiveImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/table/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/table/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pool/admin/HAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pool/deprecated_admin_/HAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pool/admin/HBaseAdmin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pool/conf/HConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pool/conf/HConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pool/connection/HConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pool/connection/HConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/hbase/HBaseInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/hbase/HBaseModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/hbase/HBaseModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/table/HBaseTableDaoIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/table/HBaseTableDaoIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/table/HBaseTableDaoNaiveImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/table/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/table/Test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tohb/src/main/java/dao/DBCommonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/dao/DBCommonDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tohb/src/main/java/dao/DBCommonDaoIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/dao/DBCommonDaoIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/pool/connection/DBConnectionImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/pool/connection/DBConnectionImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/pool/connection/DBConnectionIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/pool/connection/DBConnectionIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/pool/connection/MysqlConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/pool/connection/MysqlConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/pool/connection/SqlServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/pool/connection/SqlServerConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/target/classes/dao/DBCommonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/dao/DBCommonDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/target/classes/dao/DBCommonDaoIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/dao/DBCommonDaoIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/target/classes/pool/connection/DBConnectionImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/pool/connection/DBConnectionImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/target/classes/pool/connection/DBConnectionIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/pool/connection/DBConnectionIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/target/classes/pool/connection/MysqlConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/pool/connection/MysqlConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/target/classes/pool/connection/SqlServerConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/pool/connection/SqlServerConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/dao/mysql/MysqlCommon.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/dao/mysql/MysqlDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/service/Db2HBaseTransService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/service/Db2HBaseTransService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/service/TestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/service/TestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/test/java/TestAbstractClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/test/java/TestAbstractClass.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +153,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MysqlCommon.test1" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <configuration name="MysqlDao.test1" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="tohb" />
       <extension name="coverage">
         <pattern>
@@ -187,7 +162,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="dao.mysql" />
-      <option name="MAIN_CLASS_NAME" value="dao.mysql.MysqlCommon" />
+      <option name="MAIN_CLASS_NAME" value="dao.mysql.MysqlDao" />
       <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />

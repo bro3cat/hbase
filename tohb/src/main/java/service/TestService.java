@@ -1,7 +1,7 @@
 package service;
 
-import dao.DBCommonDaoIn;
-import dao.mysql.MysqlCommon;
+import dao.DBDaoIn;
+import dao.mysql.MysqlDao;
 import dao.table.HBaseTableDaoIn;
 import dao.table.HBaseTableDaoNaiveImpl;
 
@@ -10,7 +10,7 @@ public class TestService extends Db2HBaseTransService {
     private String tableName = "";
 
 
-    public TestService(HBaseTableDaoIn hBaseDao, DBCommonDaoIn dbCommonDao, String tableName) {
+    public TestService(HBaseTableDaoIn hBaseDao, DBDaoIn dbCommonDao, String tableName) {
         super(hBaseDao, dbCommonDao);
         if (tableName != null)
             this.tableName = tableName;
@@ -33,7 +33,7 @@ public class TestService extends Db2HBaseTransService {
     public static void main(String[] args) {
 
         HBaseTableDaoIn hBaseDao = new HBaseTableDaoNaiveImpl("hcdata2");
-        DBCommonDaoIn dbCommonDao = new MysqlCommon("test1");
+        DBDaoIn dbCommonDao = new MysqlDao("test1");
 
         BaseService service = new TestService(hBaseDao, dbCommonDao, "test1");
         service.run();

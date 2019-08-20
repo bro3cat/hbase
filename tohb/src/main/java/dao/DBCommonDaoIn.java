@@ -1,45 +1,29 @@
 package dao;
 
-import java.sql.DatabaseMetaData;
-import java.sql.ResultSet;
-import java.util.List;
+import entity.DBTable;
 
-/**
- * 数据库通用接口，因为目前只包含从数据库到HBase数据库的数据转移，所以事实上因该以读数据为主，insert和insertMany主要是为了测试用
- */
+import java.sql.ResultSet;
+
 public interface DBCommonDaoIn {
 
     /**
-     * 想数据库中插入一条数据
      *
-     * @param list
+     * @param table 所在的catalog/schema/tableName和基本表结构
      */
-    public void insert(List<String> list);
+    public void createTable(DBTable table);
 
     /**
-     * 插入多条数据
-     *
-     * @param list
+     * 删除表
+     * @param tableName tableName
      */
-    public void insertMany(List<List<String>> list,int batchSize);
+    public void delTable(String tableName);
 
     /**
-     * 读取一条数据
-     *
-     * @param key
+     * 按照batch大小读取
+     * @param tableName
+     * @param batch
      * @return
      */
-    public ResultSet read(String key);
+    public ResultSet scan(String tableName, int batch);
 
-    /**
-     * 读取全部数据
-     *
-     * @return
-     */
-    public ResultSet readTable();
-
-    public DatabaseMetaData getMetaData();
-
-//    public ResultSet readTable(List<String> columns, List<String> criteria);
-    public long test(List<List<String>> list,int batchSize);
 }

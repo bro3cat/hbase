@@ -1,5 +1,5 @@
-import dao.DBCommonDaoIn;
-import dao.mysql.MysqlCommon;
+import dao.DBDaoIn;
+import dao.mysql.MysqlDao;
 import pool.connection.DBConnectionIn;
 import pool.connection.MysqlConnection;
 
@@ -12,7 +12,7 @@ public class Test {
 //        System.out.println(name);
 
 
-        MysqlCommon mc = new MysqlCommon("test1") {
+        MysqlDao mc = new MysqlDao("test1") {
         };
 
 //        mc.test1();
@@ -32,14 +32,14 @@ public class Test {
 
         DBConnectionIn conn = new MysqlConnection();
 
-        DBCommonDaoIn dao = new MysqlCommon("test1", conn) {
+        DBDaoIn dao = new MysqlDao("test1", conn) {
         };
         new Test().test(dao, list2);
 
 
     }
 
-    public void test(DBCommonDaoIn dao, List list) {
+    public void test(DBDaoIn dao, List list) {
 
         dao.test(list, 300);
 

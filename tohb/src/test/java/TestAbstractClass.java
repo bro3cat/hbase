@@ -1,6 +1,6 @@
-import dao.mysql.MysqlCommon;
+import dao.mysql.MysqlDao;
 
-public class TestAbstractClass extends MysqlCommon {
+public class TestAbstractClass extends MysqlDao {
     public TestAbstractClass(String tableName) {
         super(tableName);
         this.tableName = null;

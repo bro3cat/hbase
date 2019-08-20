@@ -1,6 +1,6 @@
 package dao.mysql;
 
-import dao.DBCommonDao;
+import dao.DBDao;
 import pool.connection.DBConnectionIn;
 
 import java.sql.*;
@@ -8,7 +8,7 @@ import java.sql.*;
 /**
  * mysql数据库的实现
  */
-public class MysqlCommon extends DBCommonDao {
+public class MysqlDao extends DBDao {
 
 
     /**
@@ -17,7 +17,7 @@ public class MysqlCommon extends DBCommonDao {
      *
      * @param tableName
      */
-    public MysqlCommon(String tableName) {
+    public MysqlDao(String tableName) {
         super(tableName);
     }
 
@@ -27,7 +27,7 @@ public class MysqlCommon extends DBCommonDao {
      * @param tableName    设定需要管理的表的名字
      * @param dbConnection 自己创建的connection
      */
-    public MysqlCommon(String tableName, DBConnectionIn dbConnection) {
+    public MysqlDao(String tableName, DBConnectionIn dbConnection) {
         super(tableName, dbConnection);
     }
 
@@ -40,6 +40,9 @@ public class MysqlCommon extends DBCommonDao {
 
     @Override
     public ResultSet readTable() {
+//        String sql = "select * from " + tableName
+        ResultSet rs;
+
         return null;
     }
 
