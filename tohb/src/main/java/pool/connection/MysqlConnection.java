@@ -1,8 +1,7 @@
 package pool.connection;
 
-import common.Property;
 import common.SqlProperty;
-import common.StaticConfiguration;
+import h_utils.common.StaticConfiguration;
 
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -36,6 +35,7 @@ public class MysqlConnection extends DBConnectionImp {
         MysqlConnection connection = new MysqlConnection();
         try {
             ResultSet tableSet = connection.metaData.getTables("test", "test", "test1", new String[]{"TABLE"});
+
             ResultSet colSet = connection.metaData.getColumns("%", "casia", "test", "%");
             while (colSet.next()) {
                 String colName = colSet.getString("COLUMN_NAME");
@@ -49,7 +49,7 @@ public class MysqlConnection extends DBConnectionImp {
         }
 
         List list = connection.getTableSet("test");
-//        for (Object s : list) System.out.println(s);
+        for (Object s : list) System.out.println(s);
         Map<String, String> map = connection.getColumnSet("test", "test1");
         for (Map.Entry<String, String> entry : map.entrySet()) {
             System.out.printf("%5s : %s\n", entry.getKey(), entry.getValue());

@@ -1,24 +1,25 @@
 package service;
 
-import dao.DBDaoIn;
-import dao.table.HBaseTableDaoIn;
+import dao.DBCommonDaoIn;
+import h_utils.dao.table.HBaseTableDaoIn;
+
+import java.sql.SQLException;
 
 public abstract class Db2HBaseTransService implements BaseService {
 
     private String who = "";
     private String year_month_day_hour_minute_second = "";
     private long seconds = 0;
-    protected DBDaoIn dbCommonDao;
+    protected DBCommonDaoIn dbCommonDao;
     protected HBaseTableDaoIn hBaseDao;
 
-    protected void init(HBaseTableDaoIn hBaseDao, DBDaoIn dbCommonDao) {
+    protected void init(HBaseTableDaoIn hBaseDao, DBCommonDaoIn dbCommonDao) {
         this.hBaseDao = hBaseDao;
         this.dbCommonDao = dbCommonDao;
     }
 
-    public Db2HBaseTransService(HBaseTableDaoIn hBaseDao, DBDaoIn dbCommonDao){
+    public Db2HBaseTransService(HBaseTableDaoIn hBaseDao, DBCommonDaoIn dbCommonDao) {
         init(hBaseDao, dbCommonDao);
-//        dbCommonDao.
     }
 
     @Override
@@ -27,16 +28,26 @@ public abstract class Db2HBaseTransService implements BaseService {
     }
 
 
-
     @Override
-    public void run(){
-        fromDb2HBase();fromDbTable2HBase();
+    public void run() {
+        fromDb2HBase();
+        try {
+            fromDbTable2HBase();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    protected abstract void fromDbTable2HBase();{
+    protected abstract void fromDbTable2HBase() throws SQLException;
+
+    {
 
     }
-    protected abstract void fromDb2HBase();{}
+
+    protected abstract void fromDb2HBase();
+
+    {
+    }
 
 
     @Override

@@ -1,5 +1,5 @@
-import dao.DBDaoIn;
-import dao.mysql.MysqlDao;
+import dao.Deprecated_DBDaoIn;
+import dao.mysql.Deprecated_MysqlDao;
 import pool.connection.DBConnectionIn;
 import pool.connection.MysqlConnection;
 
@@ -12,7 +12,7 @@ public class Test {
 //        System.out.println(name);
 
 
-        MysqlDao mc = new MysqlDao("test1") {
+        Deprecated_MysqlDao mc = new Deprecated_MysqlDao("test1") {
         };
 
 //        mc.test1();
@@ -32,14 +32,14 @@ public class Test {
 
         DBConnectionIn conn = new MysqlConnection();
 
-        DBDaoIn dao = new MysqlDao("test1", conn) {
+        Deprecated_DBDaoIn dao = new Deprecated_MysqlDao("test1", conn) {
         };
         new Test().test(dao, list2);
 
 
     }
 
-    public void test(DBDaoIn dao, List list) {
+    public void test(Deprecated_DBDaoIn dao, List list) {
 
         dao.test(list, 300);
 

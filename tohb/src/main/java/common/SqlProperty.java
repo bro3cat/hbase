@@ -1,6 +1,9 @@
 package common;
 
 
+import h_utils.common.Property;
+import h_utils.common.StaticConfiguration;
+
 public class SqlProperty extends Property {
 
     private String url;
