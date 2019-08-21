@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import static h_utils.common.StaticConfiguration.hmaster;
+import static h_utils.config.StaticConfiguration.hmaster;
 
 public abstract class HBaseTableDao implements HBaseTableDaoIn {
 

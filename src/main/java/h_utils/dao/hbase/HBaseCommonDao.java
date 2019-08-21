@@ -1,5 +1,6 @@
 package h_utils.dao.hbase;
 
+import h_utils.utils.Log;
 import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
@@ -13,14 +14,48 @@ import java.util.Map;
 
 public class HBaseCommonDao implements HBaseCommonDaoIn {
 
+    /**
+     * 不可实例化
+     */
+    private HBaseCommonDao() {
+    }
 
+    /**
+     * 用于对表进行操作的Admin内置对象
+     */
     private Admin admin;
 
-    private Connection connection;
+    /**
+     * 用于HBase表连接的封装对象
+     */
+    private HConnection connection;
 
-    public HBaseCommonDao(HConnection hConnection) {
-        connection = hConnection.getConnection();
+    private Table table;
+
+    /**
+     * 用来更换正在操作的表
+     * 用来设置要进行操作的表
+     *
+     * @param tableName
+     */
+    @Override
+    public void setTable(String tableName) {
+        if (!isExistTable(tableName)) {
+            Log.say(tableName + "不存在，创建");
+            createTable(tableName);
+        }
+        table = connection.getTable((tableName));
+    }
+
+    @Override
+    public Table currentTable() {
+        return table;
+    }
+
+    public HBaseCommonDao(HConnection hConnection, String tableName) {
+        connection = hConnection;
         admin = hConnection.getAdmin();
+        setTable(tableName);
     }
 
     @Override
@@ -93,15 +128,46 @@ public class HBaseCommonDao implements HBaseCommonDaoIn {
     }
 
     @Override
-    public void addColumnFamily(TableName tableName, String family) throws IOException {
+    public void addColumnFamily(String tableName, String family) throws IOException {
         ColumnFamilyDescriptor fa = ColumnFamilyDescriptorBuilder.newBuilder(s2b(family)).build();
-        admin.addColumnFamily(tableName, fa);
+        admin.addColumnFamily(TableName.valueOf(tableName), fa);
+    }
+
+    @Override
+    public boolean ifExistColumnFamily(Table table, String family) throws IOException {
+        TableDescriptor tableDescriptor = table.getDescriptor();
+        ColumnFamilyDescriptor descriptor = tableDescriptor.getColumnFamily(Bytes.toBytes(family));
+        return descriptor == null ? false : true;
+    }
+
+    @Override
+    public boolean isExistTable(String tableName) {
+        try {
+            return admin.tableExists(TableName.valueOf(tableName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public void closeTable(Table table) throws IOException {
         table.close();
     }
+
+    @Override
+    public void createTable(String tableName) {
+        ColumnFamilyDescriptor familyDescriptor = ColumnFamilyDescriptorBuilder.newBuilder(Log.s2b("test")).build();
+        TableDescriptor descriptor = TableDescriptorBuilder.
+                newBuilder(TableName.valueOf(tableName)).
+                setColumnFamily(familyDescriptor).build();  //getDescriptor(TableName.valueOf(tableName));
+        try {
+            admin.createTable(descriptor);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * 字符串转为byte[]类型，主要用于行列的存储等

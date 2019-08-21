@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static h_utils.common.StaticConfiguration.hmaster;
+import static h_utils.config.StaticConfiguration.hmaster;
 
 public class HBaseTableDaoNaiveImpl extends HBaseTableDao {
     public HBaseTableDaoNaiveImpl(String tableName) {
@@ -29,19 +29,17 @@ public class HBaseTableDaoNaiveImpl extends HBaseTableDao {
         ResultScanner scanner = table.getScanner(scan);
         for (Result rs : scanner) {
             String rowKey = Bytes.toString(rs.getRow());
-            if (Integer.parseInt(rowKey.substring(12, 16)) > 2017) {
-                System.out.println("row key :" + rowKey);
-                Cell[] cells = rs.rawCells();
-                for (Cell cell : cells) {
-                    System.out.println(
-                            Bytes.toString(cell.getFamilyArray(), cell.getFamilyOffset(), cell.getFamilyLength()) + "::"
-                                    + Bytes.toString(cell.getQualifierArray(), cell.getQualifierOffset(),
-                                    cell.getQualifierLength())
-                                    + "::" + Bytes.toString(cell.getValueArray(), cell.getValueOffset(),
-                                    cell.getValueLength()));
-                }
-                System.out.println("-----------------------------------------");
+            System.out.println("row key :" + rowKey);
+            Cell[] cells = rs.rawCells();
+            for (Cell cell : cells) {
+                System.out.println(
+                        Bytes.toString(cell.getFamilyArray(), cell.getFamilyOffset(), cell.getFamilyLength()) + "::"
+                                + Bytes.toString(cell.getQualifierArray(), cell.getQualifierOffset(),
+                                cell.getQualifierLength())
+                                + "::" + Bytes.toString(cell.getValueArray(), cell.getValueOffset(),
+                                cell.getValueLength()));
             }
+            System.out.println("-----------------------------------------");
         }
     }
 
@@ -78,15 +76,22 @@ public class HBaseTableDaoNaiveImpl extends HBaseTableDao {
     @Override
     public void insertManyByList(List<Map<String, String>> list) throws IOException {
         List<Put> puts = new ArrayList<Put>();
-        if (null != list) {
-            for (Map<String, String> map : list) {
-                Put put = new Put(s2b(map.get("rowKey")));
-                put.addColumn(s2b(map.get("family")), s2b(map.get("qualifier")), s2b(map.get("value")));
-                puts.add(put);
-            }
+//        int i = 0;
+        for (Map<String, String> map : list) {
+//            if (i++ % 500000 == 0) {
+//                Log.say("putting*********************");
+//                table.put(puts);
+//                puts.clear();
+//            }
+            Put put = new Put(s2b(map.get("rowKey")));
+            put.addColumn(s2b(map.get("family")), s2b(map.get("qualifier")), s2b(map.get("value")));
+            puts.add(put);
+
         }
+//        Log.say("putsize-\t" + puts.size());
         table.put(puts);
-        table.close();
+//        table.close();
+//        table.
     }
 
     @Override

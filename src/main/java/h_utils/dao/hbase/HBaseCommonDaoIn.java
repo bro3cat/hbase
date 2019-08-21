@@ -1,7 +1,6 @@
 package h_utils.dao.hbase;
 
 import org.apache.hadoop.hbase.Cell;
-import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.client.Table;
@@ -14,6 +13,20 @@ import java.util.Map;
  * HBase通用接口
  */
 public interface HBaseCommonDaoIn {
+
+    /**
+     * 设置要操作的表
+     *
+     * @param tableName
+     */
+    public void setTable(String tableName);
+
+    /**
+     * 返回当前正在操作的表
+     *
+     * @return
+     */
+    public Table currentTable();
 
 
     /**
@@ -74,8 +87,14 @@ public interface HBaseCommonDaoIn {
      *
      * @param family
      */
-    public void addColumnFamily(TableName tableName, String family) throws IOException;
+    public void addColumnFamily(String tableName, String family) throws IOException;
+
+    public boolean ifExistColumnFamily(Table table, String family) throws IOException;
+
+    public boolean isExistTable(String tableName) throws IOException;
 
     public void closeTable(Table table) throws IOException;
+
+    public void createTable(String tableName) throws IOException;
 
 }

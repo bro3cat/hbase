@@ -1,8 +1,11 @@
 package h_utils.pool.connection;
 
+import javafx.scene.control.Tab;
+import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.Connection;
 import h_utils.pool.conf.HConfiguration;
+import org.apache.hadoop.hbase.client.Table;
 
 import java.io.IOException;
 
@@ -15,6 +18,15 @@ public abstract class HConnection {
      * 返回的connection
      */
     protected Connection connection;
+
+    public Table getTable(String tableName) {
+        try {
+            return connection.getTable(TableName.valueOf(tableName));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 
     public Connection getConnection() {

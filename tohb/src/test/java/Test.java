@@ -1,7 +1,7 @@
-import dao.Deprecated_DBDaoIn;
-import dao.mysql.Deprecated_MysqlDao;
-import pool.connection.DBConnectionIn;
-import pool.connection.MysqlConnection;
+import tohb.dao.Deprecated_DBDaoIn;
+import tohb.dao.mysql.Deprecated_MysqlDao;
+import tohb.pool.connection.DBConnectionIn;
+import tohb.pool.connection.MysqlConnection;
 
 import java.util.*;
 import java.util.List;

@@ -1,4 +1,4 @@
-import dao.mysql.Deprecated_MysqlDao;
+import tohb.dao.mysql.Deprecated_MysqlDao;
 
 public class TestAbstractClass extends Deprecated_MysqlDao {
     public TestAbstractClass(String tableName) {
