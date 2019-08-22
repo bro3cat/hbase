@@ -1,4 +1,4 @@
-package h_utils.dao.hbase;
+package h_utils.dao;
 
 import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.client.Put;
@@ -10,9 +10,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * HBase通用接口
+ * 通用的HBaseTable操作集，如：
+ * 增删改查
  */
-public interface HBaseCommonDaoIn {
+public interface TableCommonUtils {
+
 
     /**
      * 设置要操作的表
@@ -80,21 +82,5 @@ public interface HBaseCommonDaoIn {
      * @throws IOException
      */
     public void insertManyByPut(Table table, List<Put> puts) throws IOException;
-
-    /**
-     * 初步设想，一个数据库对应一个hBase表，一个表对应一个columnFamily<br>
-     * 用于增加columnFamily
-     *
-     * @param family
-     */
-    public void addColumnFamily(String tableName, String family) throws IOException;
-
-    public boolean ifExistColumnFamily(Table table, String family) throws IOException;
-
-    public boolean isExistTable(String tableName) throws IOException;
-
-    public void closeTable(Table table) throws IOException;
-
-    public void createTable(String tableName) throws IOException;
 
 }

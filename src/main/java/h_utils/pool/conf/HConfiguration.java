@@ -2,7 +2,6 @@ package h_utils.pool.conf;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.hadoop.hbase.client.Connection;
 
 import java.io.File;
 import java.util.Map;
@@ -49,4 +48,6 @@ public abstract class HConfiguration {
     public Configuration getConfiguration() {
         return conf;
     }
+
+
 }

@@ -1,5 +1,6 @@
 package h_utils.pool.connection;
 
+import h_utils.utils.Log;
 import javafx.scene.control.Tab;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;

@@ -1,5 +1,6 @@
 package tohb.dao;
 
+import h_utils.utils.Log;
 import tohb.pool.connection.DBConnectionIn;
 import tohb.pool.connection.MysqlConnection;
 
@@ -116,12 +117,13 @@ public class Deprecated_DBDao implements Deprecated_DBDaoIn {
                     pstmt.clearBatch();
                     list_index = 0;
                     long t4 = System.currentTimeMillis();
-                    System.out.println((t4 - t3));
+                    Log.say2("One Step For Batch Size"+batchSize, (t4 - t3)+"ms");
                 }
             }
             pstmt.executeBatch();
             t2 = System.currentTimeMillis();
-            System.out.println("总体上" + (t2 - t1));
+            Log.say2("Whole Job Time", (t2-t1)+"ms");
+//            System.out.println("总体上" + (t2 - t1));
             connection.getConnection().setAutoCommit(true);
         } catch (SQLException e) {
             e.printStackTrace();

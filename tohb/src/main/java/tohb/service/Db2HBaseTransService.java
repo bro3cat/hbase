@@ -1,11 +1,11 @@
 package tohb.service;
 
 import h_utils.config.StaticConfiguration;
-import h_utils.dao.hbase.HBaseCommonDao;
-import h_utils.dao.hbase.HBaseCommonDaoIn;
-import h_utils.pool.conf.HBaseConfigNaive;
-import h_utils.pool.conf.HConfiguration;
-import h_utils.pool.connection.HBaseConnectionBase;
+import h_utils.dao.TableCommonUtils;
+import h_utils.dao.TableCommonUtilsBasic;
+import h_utils.dao.TableModifier;
+import h_utils.dao.TableStatus;
+import h_utils.pool.connection.HBaseConnectionStatic;
 import h_utils.pool.connection.HConnection;
 import h_utils.utils.Log;
 import org.apache.hadoop.hbase.client.Put;
@@ -26,9 +26,9 @@ public abstract class Db2HBaseTransService implements BaseService {
     private String year_month_day_hour_minute_second = "";
     private long seconds = 0;
     protected DBCommonDaoIn dbCommonDao;
-    protected HBaseCommonDaoIn hBaseCommonDao;
+    protected TableCommonUtils hBaseCommonDao;
 
-    protected void init(HBaseCommonDaoIn hBaseDao, DBCommonDaoIn dbCommonDao) {
+    protected void init(TableCommonUtils hBaseDao, DBCommonDaoIn dbCommonDao) {
         this.hBaseCommonDao = hBaseDao;
         this.dbCommonDao = dbCommonDao;
     }
@@ -41,7 +41,7 @@ public abstract class Db2HBaseTransService implements BaseService {
      * @param tableName      关系数据库表名，如果针对库区读，则不需要设置表名
      * @param dbName         如果针对库去读，则不必设置数据库名
      */
-    public Db2HBaseTransService(HBaseCommonDaoIn hBaseCommonDao, DBCommonDaoIn dbCommonDao, String dbName, String tableName) {
+    public Db2HBaseTransService(TableCommonUtils hBaseCommonDao, DBCommonDaoIn dbCommonDao, String dbName, String tableName) {
         init(hBaseCommonDao, dbCommonDao);
         if (tableName != null) this.tableName = tableName;
         if (dbName != null) this.dbName = dbName;
@@ -95,9 +95,9 @@ public abstract class Db2HBaseTransService implements BaseService {
         List<String> tableNames = dbCommonDao.getTableSet(dbName);
         //遍历，如果HBase中不存在该columnName则以表名新建
         for (String tableName : tableNames)
-            if (!hBaseCommonDao.ifExistColumnFamily(hBaseCommonDao.currentTable(), tableName)) {
+            if (!TableStatus.ifColumnExist(hBaseCommonDao.currentTable(), tableName)) {
                 Log.say("not Exist:" + tableName);
-                hBaseCommonDao.addColumnFamily(hBaseCommonDao.currentTable().getName().toString(), tableName);
+                TableModifier.addColumnFamily(hBaseCommonDao.currentTable(), tableName);
             }
         //遍历，调用DBTable2HBase
         for (String tableName : tableNames) {
@@ -147,7 +147,6 @@ public abstract class Db2HBaseTransService implements BaseService {
                 //构建put，将信息组合到一起，构建为一个key
                 Put put = new Put(Log.s2b(builder.toString().substring(0, builder.length() - 1)));
                 //其他的family，qualifier和value都为空
-//                hBaseCommonDao.
                 put.addColumn(Log.s2b(tableName), Log.s2b(tableName), Log.s2b(""));
                 //合并到puts中
                 puts.add(put);
@@ -199,9 +198,8 @@ public abstract class Db2HBaseTransService implements BaseService {
                 StringBuilder builder = new StringBuilder();
                 //首先获取主键
                 String hBaseRowKey = rs.getObject(primaryKey).toString();//dbCommonDao.getPrimaryName(dbName,tableName);
-                Log.say(builder);
+                //Log.say(builder);
                 //其他的family，qualifier和value都为空
-//                hBaseCommonDao.
                 for (int i = 0; i < length; i++) {
                     //构建put，将信息组合到一起，构建为一个key
                     Put put = new Put(Log.s2b(hBaseRowKey));
@@ -211,7 +209,6 @@ public abstract class Db2HBaseTransService implements BaseService {
                     //对应的三个值分别为:tableName/column/value
                     {
                         put.addColumn(Log.s2b(tableName), Log.s2b(columnNames.get(i)), Log.s2b(rs.getObject(columnNames.get(i)).toString()));
-//                        Log.say(tableName + ":" + columnNames.get(i) + ":" + rs.getObject(columnNames.get(i)).toString());
                         //合并到puts中
                         puts.add(put);
                     }
@@ -245,16 +242,44 @@ public abstract class Db2HBaseTransService implements BaseService {
 
 
     public static void main(String[] args) {
-        HConfiguration configuration = new HBaseConfigNaive(StaticConfiguration.hmaster);
-        HConnection connection = new HBaseConnectionBase(configuration);
-        HBaseCommonDaoIn hBaseCommonDao = new HBaseCommonDao(connection, "hcdata3");
-
-        DBCommonDaoIn dbCommonDao = new DBCommonDao();
-
-        BaseService service = new Db2HBaseTransService(hBaseCommonDao, dbCommonDao, "casia", null) {
-        };
         service.run();
     }
+
+    private static BaseService service;
+
+    static {
+        try {
+            service = getService();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static BaseService getService() throws IOException {
+        //HBaseConnection
+        HConnection hConnection = HBaseConnectionStatic.get_NOTCLOSABLE_Connection();
+        //HBaseUtils
+        TableCommonUtils utils = new TableCommonUtilsBasic(hConnection, "hcdata9");
+//        utils.scanTable(utils.currentTable(), StaticConfiguration.DEFAULT_SCAN);
+        //DatabaseDao
+        DBCommonDaoIn dbCommonDao = new DBCommonDao();
+        //Service
+        BaseService service = new Db2HBaseTransService(utils, dbCommonDao, "casia", null) {
+        };
+        return service;
+        //        HConfiguration configuration = new HBaseConfigNaive(StaticConfiguration.hmaster);
+//        HConnection connection = new HBaseConnectionBase(configuration);
+//        HBaseCommon hBaseCommonDao = new HBaseCommonDao(connection, "hcdata3");
+
+//        HConnection hConnection = HBaseConnectionStatic.get_NOTCLOSABLE_Connection();
+//        TableCommonUtils utils = new TableCommonUtilsBasic(hConnection, "hcdata9");
+//
+//        DBCommonDaoIn dbCommonDao = new DBCommonDao();
+//
+//        BaseService service = new Db2HBaseTransService(utils, dbCommonDao, "casia", null) {
+//        };
+    }
+
 
 }
 //

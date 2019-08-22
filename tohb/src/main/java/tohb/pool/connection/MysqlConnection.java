@@ -25,7 +25,7 @@ public class MysqlConnection extends DBConnectionImp {
         super();
         try {
             metaData = connection.getMetaData();
-            System.out.println(metaData);
+//            System.out.println(metaData);
         } catch (SQLException e) {
             e.printStackTrace();
         }

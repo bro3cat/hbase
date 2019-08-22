@@ -17,7 +17,6 @@ public class HBaseConnectionBase extends HConnection {
         Connection conn = null;
         try {
             conn = ConnectionFactory.createConnection(configuration.getConfiguration());
-            System.out.println("if");
         } catch (IOException e) {
             e.printStackTrace();
         }

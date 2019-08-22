@@ -55,7 +55,6 @@ public class DBCommonDao implements DBCommonDaoIn {
         String sql = "select table_schema, table_name,column_name from  INFORMATION_SCHEMA.KEY_COLUMN_USAGE  t where t.table_schema='" + dbName + "'";
         Log.say(sql);
         ResultSet rs = conn.createStatement().executeQuery(sql);
-        rs.
         while (rs.next()) {
             if (tableName.equals(rs.getString(2)))
                 return rs.getString(3);

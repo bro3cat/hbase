@@ -16,7 +16,7 @@ public abstract class DBConnectionImp implements DBConnectionIn {
         createConnection();
         try {
             metaData = connection.getMetaData();
-            System.out.println(metaData);
+//            System.out.println(metaData);
         } catch (SQLException e) {
             e.printStackTrace();
         }
