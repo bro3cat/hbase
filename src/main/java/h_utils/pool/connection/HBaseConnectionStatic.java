@@ -9,12 +9,15 @@ import h_utils.pool.conf.HConfiguration;
 
 import java.io.IOException;
 
+/**
+ * 包含不允许被关闭的，可以通过get_NOTCLOSABLE_Connection（）方法获取的NOTCLOSABLE_hConnection
+ */
 public class HBaseConnectionStatic {
 
 
-    private static HConfiguration configuration;
+    private static final HConfiguration configuration;
 
-    private static HConnection NOTCLOSABLE_hConnection;
+    private static final HConnection NOTCLOSABLE_hConnection;
 
     static {
         configuration = new HBaseConfigNaive(StaticConfiguration.hmaster);

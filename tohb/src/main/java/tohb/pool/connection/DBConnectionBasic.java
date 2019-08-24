@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class DBConnectionImp implements DBConnectionIn {
+public abstract class DBConnectionBasic implements DBConnection {
 
     protected DatabaseMetaData metaData = null;
     protected Connection connection = null;
 
     //    private DBConnection(){}
-    public DBConnectionImp() {
+    public DBConnectionBasic() {
         createConnection();
         try {
             metaData = connection.getMetaData();

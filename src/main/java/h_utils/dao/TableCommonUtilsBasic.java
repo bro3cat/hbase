@@ -33,6 +33,12 @@ public class TableCommonUtilsBasic implements TableCommonUtils {
     private Table table;
 
 
+    /**
+     * HBase数据表基基本操作
+     *
+     * @param hConnection HConnection对象
+     * @param tableName   要操作的表
+     */
     public TableCommonUtilsBasic(HConnection hConnection, String tableName) {
         this.hConnection = hConnection;
         Log.say2("TableCommonUtilsBasic.[hConnection]", "set OK");

@@ -1,6 +1,5 @@
 package tohb.service;
 
-import h_utils.config.StaticConfiguration;
 import h_utils.dao.TableCommonUtils;
 import h_utils.dao.TableCommonUtilsBasic;
 import h_utils.dao.TableModifier;
@@ -9,8 +8,8 @@ import h_utils.pool.connection.HBaseConnectionStatic;
 import h_utils.pool.connection.HConnection;
 import h_utils.utils.Log;
 import org.apache.hadoop.hbase.client.Put;
-import tohb.dao.DBCommonDao;
-import tohb.dao.DBCommonDaoIn;
+import tohb.dao.DBCommonUtilsBasic;
+import tohb.dao.DBCommonUtils;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -18,17 +17,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Db2HBaseTransService implements BaseService {
+public abstract class Db2HTransServiceDB2HTable implements DB2HTransService {
 
     private String tableName = "";
     private String dbName = "";
     private String who = "";
     private String year_month_day_hour_minute_second = "";
     private long seconds = 0;
-    protected DBCommonDaoIn dbCommonDao;
+    protected DBCommonUtils dbCommonDao;
     protected TableCommonUtils hBaseCommonDao;
 
-    protected void init(TableCommonUtils hBaseDao, DBCommonDaoIn dbCommonDao) {
+    protected void init(TableCommonUtils hBaseDao, DBCommonUtils dbCommonDao) {
         this.hBaseCommonDao = hBaseDao;
         this.dbCommonDao = dbCommonDao;
     }
@@ -38,10 +37,15 @@ public abstract class Db2HBaseTransService implements BaseService {
      *
      * @param hBaseCommonDao hBase数据库的基本操作
      * @param dbCommonDao    关系数据库的通用操作
-     * @param tableName      关系数据库表名，如果针对库区读，则不需要设置表名
      * @param dbName         如果针对库去读，则不必设置数据库名
+     * @param tableName      关系数据库表名，如果针对库区读，则不需要设置表名
      */
-    public Db2HBaseTransService(TableCommonUtils hBaseCommonDao, DBCommonDaoIn dbCommonDao, String dbName, String tableName) {
+    public Db2HTransServiceDB2HTable(TableCommonUtils hBaseCommonDao, DBCommonUtils dbCommonDao, String dbName, String tableName) {
+        //4个必须参数：
+        //TableCommonUtils hbaseCommonDao
+        //DBCommonDaoIn dbCommonDao
+        //String dbName
+        //String tableName
         init(hBaseCommonDao, dbCommonDao);
         if (tableName != null) this.tableName = tableName;
         if (dbName != null) this.dbName = dbName;
@@ -54,9 +58,13 @@ public abstract class Db2HBaseTransService implements BaseService {
 
 
     @Override
-    public void run() {
+    public void defaultService() {
         fromDB2HBase(dbName, tableName);
     }
+
+    @Override
+    public abstract void userService();
+
 
 
     /**
@@ -96,7 +104,7 @@ public abstract class Db2HBaseTransService implements BaseService {
         //遍历，如果HBase中不存在该columnName则以表名新建
         for (String tableName : tableNames)
             if (!TableStatus.ifColumnExist(hBaseCommonDao.currentTable(), tableName)) {
-                Log.say("not Exist:" + tableName);
+                Log.say2(tableName + " as Family", "not Exist");
                 TableModifier.addColumnFamily(hBaseCommonDao.currentTable(), tableName);
             }
         //遍历，调用DBTable2HBase
@@ -143,7 +151,7 @@ public abstract class Db2HBaseTransService implements BaseService {
                 for (int i = 1; i <= length; i++) {
                     builder.append(rs.getObject(i) + "_");
                 }
-                Log.say(builder);
+                //Log.say(builder);
                 //构建put，将信息组合到一起，构建为一个key
                 Put put = new Put(Log.s2b(builder.toString().substring(0, builder.length() - 1)));
                 //其他的family，qualifier和value都为空
@@ -219,7 +227,11 @@ public abstract class Db2HBaseTransService implements BaseService {
             long t1 = System.currentTimeMillis();
             hBaseCommonDao.insertManyByPut(hBaseCommonDao.currentTable(), puts);
             long t2 = System.currentTimeMillis();
-            Log.say((t2 - t1) + "   :" + start);
+            Log.say2("HBase Saving Table", dbName + "." + tableName);
+            Log.say2("HBase Saving Batch", batch);
+            Log.say2("HBase Saving Time", (t2 - t1) + "ms");
+            Log.line();
+//            Log.say2( "   :" + start);
             start += batch;
         }//while (start + batch <= stop)
 
@@ -242,10 +254,10 @@ public abstract class Db2HBaseTransService implements BaseService {
 
 
     public static void main(String[] args) {
-        service.run();
+        service.defaultService();
     }
 
-    private static BaseService service;
+    private static DB2HTransService service;
 
     static {
         try {
@@ -255,16 +267,20 @@ public abstract class Db2HBaseTransService implements BaseService {
         }
     }
 
-    private static BaseService getService() throws IOException {
+    private static DB2HTransService getService() throws IOException {
         //HBaseConnection
         HConnection hConnection = HBaseConnectionStatic.get_NOTCLOSABLE_Connection();
         //HBaseUtils
         TableCommonUtils utils = new TableCommonUtilsBasic(hConnection, "hcdata9");
 //        utils.scanTable(utils.currentTable(), StaticConfiguration.DEFAULT_SCAN);
         //DatabaseDao
-        DBCommonDaoIn dbCommonDao = new DBCommonDao();
+        DBCommonUtils dbCommonDao = new DBCommonUtilsBasic();
         //Service
-        BaseService service = new Db2HBaseTransService(utils, dbCommonDao, "casia", null) {
+        DB2HTransService service = new Db2HTransServiceDB2HTable(utils, dbCommonDao, "casia", null) {
+            @Override
+            public void userService() {
+
+            }
         };
         return service;
         //        HConfiguration configuration = new HBaseConfigNaive(StaticConfiguration.hmaster);

@@ -1,8 +1,8 @@
 package tohb.dao;
 
 import h_utils.utils.Log;
-import tohb.pool.connection.DBConnectionIn;
-import tohb.pool.connection.MysqlConnection;
+import tohb.pool.connection.DBConnection;
+import tohb.pool.connection.DBConnectionBasicMysql;
 
 import java.sql.*;
 import java.util.List;
@@ -43,7 +43,7 @@ public class Deprecated_DBDao implements Deprecated_DBDaoIn {
      * connection为内置对象，为数据库连接，
      * 默认MysqlCommon包含<一个表,一个数据库连接>
      */
-    protected DBConnectionIn connection;
+    protected DBConnection connection;
 
     /**
      * 构造函数用来初始化表名tableName和内部连接connection
@@ -53,7 +53,7 @@ public class Deprecated_DBDao implements Deprecated_DBDaoIn {
      */
     public Deprecated_DBDao(String tableName) {
         this.tableName = tableName;
-        this.connection = new MysqlConnection();
+        this.connection = new DBConnectionBasicMysql();
         stmt = connection.createStatement();
     }
 
@@ -63,7 +63,7 @@ public class Deprecated_DBDao implements Deprecated_DBDaoIn {
      * @param tableName    设定需要管理的表的名字
      * @param dbConnection 自己创建的connection
      */
-    public Deprecated_DBDao(String tableName, DBConnectionIn dbConnection) {
+    public Deprecated_DBDao(String tableName, DBConnection dbConnection) {
         this.tableName = tableName;
         this.connection = dbConnection;
         stmt = connection.createStatement();

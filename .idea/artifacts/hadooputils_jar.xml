@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="hadooputils:jar">
-    <output-path>$PROJECT_DIR$/classes/artifacts/hadooputils_jar</output-path>
+    <output-path>E:/hadooputils.jar</output-path>
     <root id="archive" name="hadooputils.jar">
       <element id="module-output" name="hadooputils" />
       <element id="extracted-dir" path="E:/apps/apache-maven-3.6.1-bin/apache-maven-3.6.1/rep/org/apache/yetus/audience-annotations/0.5.0/audience-annotations-0.5.0.jar" path-in-jar="/" />

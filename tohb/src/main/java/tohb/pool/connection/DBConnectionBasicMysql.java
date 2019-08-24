@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-public class MysqlConnection extends DBConnectionImp {
+public class DBConnectionBasicMysql extends DBConnectionBasic {
 
     private SqlProperty property;//= new Property(StaticConfiguration.mysql_property);
 
@@ -21,7 +21,7 @@ public class MysqlConnection extends DBConnectionImp {
     DatabaseMetaData metaData = null;
 
 
-    public MysqlConnection() {
+    public DBConnectionBasicMysql() {
         super();
         try {
             metaData = connection.getMetaData();
@@ -32,7 +32,7 @@ public class MysqlConnection extends DBConnectionImp {
     }
 
     public static void main(String[] args) {
-        MysqlConnection connection = new MysqlConnection();
+        DBConnectionBasicMysql connection = new DBConnectionBasicMysql();
         try {
             ResultSet tableSet = connection.metaData.getTables("test", "test", "test1", new String[]{"TABLE"});
 

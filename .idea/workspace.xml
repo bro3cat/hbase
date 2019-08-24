@@ -2,72 +2,54 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="hadooputils:jar" />
+      <artifact name="tohb:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e973cd73-4e07-43a7-8256-5ece58dd4168" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/h_utils/dao/TableCommonUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/h_utils/dao/TableCommonUtilsBasic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/h_utils/dao/TableModifier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/h_utils/dao/TableStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/h_utils/pool/connection/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/tohb_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/common/DBPropertyFromDb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/entity/DBProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/hadooputils_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/hadooputils_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/hbase/common/HBaseLinearManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/hbase/utils/StaticConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/pool/configuration/HBaseConfigurationModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/pool/configuration/hbase/HBaseSimpleConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/pool/connection/BaseConnectionSql.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/pool/connection/HBaseConnectionModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/pool/connection/hbase/HBaseConnectionClosable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/pool/connection/hbase/HBaseConnectionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/pool/connection/hbase/HBaseConnectionNeverClosed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/pool/dao/hbase/HBaseDaoModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/pool/dao/hbase/impl/HBaseDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/test/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/tools/Log.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bak/tools/Property.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/config/StaticConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/h_utils/config/StaticConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/dao/hbase/HBaseCommonDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/dao/hbase/HBaseCommonDaoIn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/dao/table/HBaseTableDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/dao/table/HBaseTableDaoIn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/dao/table/HBaseTableDaoNaiveImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/dao/table/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/pool/conf/HConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/h_utils/pool/conf/HConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/dao/TableCommonUtilsBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/h_utils/dao/TableCommonUtilsBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/dao/TableModifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/h_utils/dao/TableModifier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/pool/connection/HBaseConnectionBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/h_utils/pool/connection/HBaseConnectionBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/pool/connection/HBaseConnectionStatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/h_utils/pool/connection/HBaseConnectionStatic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/pool/connection/HConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/h_utils/pool/connection/HConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/pool/deprecated_admin_/HAdmin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/pool/deprecated_admin_/HBaseAdmin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/h_utils/test/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/h_utils/utils/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/h_utils/utils/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/config/StaticConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/h_utils/config/StaticConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/dao/hbase/HBaseCommonDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/dao/hbase/HBaseCommonDaoIn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/dao/table/HBaseTableDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/dao/table/HBaseTableDaoIn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/dao/table/HBaseTableDaoNaiveImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/dao/table/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/pool/conf/HConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/h_utils/pool/conf/HConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/dao/TableCommonUtilsBasic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/h_utils/dao/TableCommonUtilsBasic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/dao/TableModifier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/h_utils/dao/TableModifier.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/h_utils/pool/connection/HBaseConnectionBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/h_utils/pool/connection/HBaseConnectionBase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/h_utils/pool/connection/HBaseConnectionStatic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/h_utils/pool/connection/HBaseConnectionStatic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/h_utils/pool/connection/HConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/h_utils/pool/connection/HConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/pool/deprecated_admin_/HAdmin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/pool/deprecated_admin_/HBaseAdmin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/h_utils/test/Test.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/h_utils/utils/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/h_utils/utils/Log.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/dao/DBCommonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/dao/DBCommonDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/common/SqlProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/common/SqlProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/dao/DBCommonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/dao/DBCommonUtilsBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/dao/DBCommonDaoIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/dao/DBCommonUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/dao/Deprecated_DBDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/dao/Deprecated_DBDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/DBConnectionImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/DBConnectionImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/MysqlConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/MysqlConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/service/Db2HBaseTransService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/service/Db2HBaseTransService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/dao/mysql/Deprecated_MysqlDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/dao/mysql/Deprecated_MysqlDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/DBConnectionImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/DBConnectionBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/DBConnectionIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/MysqlConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/DBConnectionBasicMysql.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/SqlServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/pool/connection/SqlServerConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/service/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/service/DB2HTransService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/main/java/tohb/service/Db2HBaseTransService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/main/java/tohb/service/Db2HTransServiceDB2HTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/common/SqlProperty.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/tohb/common/SqlProperty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/dao/DBCommonDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/dao/DBCommonDaoIn.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/dao/Deprecated_DBDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/tohb/dao/Deprecated_DBDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/pool/connection/DBConnectionImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/tohb/pool/connection/DBConnectionImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/pool/connection/MysqlConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/tohb/pool/connection/MysqlConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/service/Db2HBaseTransService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/tohb/service/Db2HBaseTransService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/service/Db2HBaseTransService.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/tohb/service/Db2HBaseTransService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/dao/mysql/Deprecated_MysqlDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/tohb/dao/mysql/Deprecated_MysqlDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/pool/connection/DBConnectionImp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/pool/connection/DBConnectionIn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/pool/connection/MysqlConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/pool/connection/SqlServerConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/classes/tohb/pool/connection/SqlServerConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/service/BaseService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/service/Db2HBaseTransService$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/classes/tohb/service/Db2HBaseTransService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/test-classes/Test$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/test-classes/Test$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tohb/target/test-classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/tohb/target/test-classes/Test.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,8 +89,8 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="E:/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
@@ -149,9 +131,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Db2HBaseTransService">
-    <configuration name="Db2HBaseTransService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tohb.service.Db2HBaseTransService" />
+  <component name="RunManager" selected="Application.Db2HTransServiceDB2HTable">
+    <configuration name="Db2HBaseTransfer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tohb.service.Db2HBaseTransfer" />
       <module name="tohb" />
       <extension name="coverage">
         <pattern>
@@ -163,8 +145,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Db2HBaseTransfer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tohb.service.Db2HBaseTransfer" />
+    <configuration name="Db2HTransServiceDB2HTable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tohb.service.Db2HTransServiceDB2HTable" />
       <module name="tohb" />
       <extension name="coverage">
         <pattern>
@@ -228,7 +210,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Db2HBaseTransService" />
+        <item itemvalue="Application.Db2HTransServiceDB2HTable" />
         <item itemvalue="Application.Db2HBaseTransfer" />
         <item itemvalue="Application.TestService" />
         <item itemvalue="Application.MysqlConnection" />
@@ -266,8 +248,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/tohb/src/main/java/tohb/service/Db2HBaseTransService.java</url>
-          <line>262</line>
+          <url>file://$PROJECT_DIR$/tohb/src/main/java/tohb/service/Db2HTransServiceDB2HTable.java</url>
+          <line>271</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>

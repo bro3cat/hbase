@@ -1,7 +1,7 @@
 package tohb.dao.mysql;
 
 import tohb.dao.Deprecated_DBDao;
-import tohb.pool.connection.DBConnectionIn;
+import tohb.pool.connection.DBConnection;
 
 import java.sql.*;
 
@@ -27,7 +27,7 @@ public class Deprecated_MysqlDao extends Deprecated_DBDao {
      * @param tableName    设定需要管理的表的名字
      * @param dbConnection 自己创建的connection
      */
-    public Deprecated_MysqlDao(String tableName, DBConnectionIn dbConnection) {
+    public Deprecated_MysqlDao(String tableName, DBConnection dbConnection) {
         super(tableName, dbConnection);
     }
 

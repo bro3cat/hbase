@@ -1,21 +1,20 @@
 package tohb.dao;
 
-import h_utils.utils.Log;
-import tohb.pool.connection.DBConnectionIn;
-import tohb.pool.connection.MysqlConnection;
+import tohb.pool.connection.DBConnection;
+import tohb.pool.connection.DBConnectionBasicMysql;
 
-//import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-public class DBCommonDao implements DBCommonDaoIn {
 
-    private DBConnectionIn conn;
+public class DBCommonUtilsBasic implements DBCommonUtils {
 
-    public DBCommonDao() {
-        conn = new MysqlConnection();
+    private DBConnection conn;
+
+    public DBCommonUtilsBasic() {
+        conn = new DBConnectionBasicMysql();
     }
 
     @Override
@@ -42,7 +41,7 @@ public class DBCommonDao implements DBCommonDaoIn {
     @Override
     public int getTableSize(String dbName, String tableName) throws SQLException {
         String sql = "select count(*) from " + dbName + "." + tableName;
-        Log.say(sql);
+        //Log.say(sql);
         ResultSet rs = conn.createStatement().executeQuery(sql);
         while (rs.next())
             return (rs.getInt(1));
@@ -53,7 +52,7 @@ public class DBCommonDao implements DBCommonDaoIn {
     @Override
     public String getPrimaryName(String dbName, String tableName) throws SQLException {
         String sql = "select table_schema, table_name,column_name from  INFORMATION_SCHEMA.KEY_COLUMN_USAGE  t where t.table_schema='" + dbName + "'";
-        Log.say(sql);
+        //Log.say(sql);
         ResultSet rs = conn.createStatement().executeQuery(sql);
         while (rs.next()) {
             if (tableName.equals(rs.getString(2)))

@@ -33,7 +33,7 @@ public class TableModifier {
                 ColumnFamilyDescriptor fa = ColumnFamilyDescriptorBuilder.newBuilder(Log.s2b(family)).build();
                 try {
                     admin.addColumnFamily(table.getName(), fa);
-                    Log.say2("---Added Family:", family);
+                    Log.say2("---Added Family", family);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -57,7 +57,7 @@ public class TableModifier {
                 setColumnFamilies(descriptorList).build();  //getDescriptor(TableName.valueOf(tableName));
         try {
             admin.createTable(descriptor);
-            Log.say2("---Created Table:", tableName);
+            Log.say2("---Created Table", tableName);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class TableModifier {
      */
     public static void dropTable(String tableName) {
         try {
-            Log.say2("---Disable Table:", tableName);
+            Log.say2("---Disable Table", tableName);
             admin.disableTable(TableName.valueOf(tableName));
             Log.say2("---Delete Table:", tableName);
             admin.deleteTable(TableName.valueOf(tableName));
