@@ -11,6 +11,7 @@ import org.apache.hadoop.hbase.client.Put;
 import tohb.dao.trans.DBTransUtilsBasic;
 import tohb.dao.trans.DBTransUtils;
 import tohb.pool.connection.DBConnection;
+import tohb.pool.connection.DBConnectionCreate;
 import tohb.pool.connection.MysqlConnection;
 
 import java.io.IOException;
@@ -275,7 +276,8 @@ public abstract class Db2HTransServiceDB2HTable implements DB2HTransService {
         TableCommonUtils utils = new TableCommonUtilsBasic(hConnection, "hcdata9");
 //        utils.scanTable(utils.currentTable(), StaticConfiguration.DEFAULT_SCAN);
         //DatabaseDao
-        DBConnection dbConnection = new MysqlConnection();
+//        DBConnection dbConnection = new MysqlConnection();
+        DBConnection dbConnection = DBConnectionCreate.create("mysql");
         DBTransUtils dbCommonDao = new DBTransUtilsBasic(dbConnection);
         //Service
         DB2HTransService service = new Db2HTransServiceDB2HTable(utils, dbCommonDao, "casia", null) {
