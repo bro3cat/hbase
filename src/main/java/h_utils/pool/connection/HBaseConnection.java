@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * 获取HBaseConnection的基本类
  */
-public abstract class HConnection {
+public abstract class HBaseConnection {
 
     /**
      * 返回的connection
@@ -52,7 +52,7 @@ public abstract class HConnection {
      *
      * @param hConfiguration
      */
-    public HConnection(HConfiguration hConfiguration) {
+    public HBaseConnection(HConfiguration hConfiguration) {
         configuration = hConfiguration;
         connection = createConnection();
     }
@@ -82,7 +82,7 @@ public abstract class HConnection {
         return null;
     }
 
-    private HConnection() {
+    private HBaseConnection() {
     }
 
     /**

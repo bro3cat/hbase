@@ -2,7 +2,7 @@ package tohb.dao;
 
 import h_utils.utils.Log;
 import tohb.pool.connection.DBConnection;
-import tohb.pool.connection.DBConnectionBasicMysql;
+import tohb.pool.connection.MysqlConnection;
 
 import java.sql.*;
 import java.util.List;
@@ -53,7 +53,7 @@ public class Deprecated_DBDao implements Deprecated_DBDaoIn {
      */
     public Deprecated_DBDao(String tableName) {
         this.tableName = tableName;
-        this.connection = new DBConnectionBasicMysql();
+        this.connection = new MysqlConnection();
         stmt = connection.createStatement();
     }
 

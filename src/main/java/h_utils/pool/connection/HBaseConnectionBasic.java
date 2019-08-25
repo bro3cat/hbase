@@ -7,14 +7,14 @@ import org.apache.hadoop.hbase.client.ConnectionFactory;
 import java.io.IOException;
 
 
-public class HBaseConnectionBase extends HConnection {
+public class HBaseConnectionBasic extends HBaseConnection {
 
     /**
      * 可以生成新的数据库Connection
      *
      * @param hConfiguration
      */
-    public HBaseConnectionBase(HConfiguration hConfiguration) {
+    public HBaseConnectionBasic(HConfiguration hConfiguration) {
         super(hConfiguration);
     }
 

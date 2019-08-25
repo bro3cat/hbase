@@ -1,7 +1,6 @@
-package tohb.dao;
+package tohb.dao.trans;
 
 import tohb.pool.connection.DBConnection;
-import tohb.pool.connection.DBConnectionBasicMysql;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,12 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 
-public class DBCommonUtilsBasic implements DBCommonUtils {
+public class DBTransUtilsBasic implements DBTransUtils {
 
     private DBConnection conn;
 
-    public DBCommonUtilsBasic() {
-        conn = new DBConnectionBasicMysql();
+    public DBTransUtilsBasic(DBConnection dbConnection) {
+        conn = dbConnection;
     }
 
     @Override

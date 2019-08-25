@@ -2,7 +2,7 @@ package tohb.pool.connection;
 
 import java.util.Map;
 
-public class SqlServerConnection extends DBConnectionBasic {
+public class SqlServerConnection extends DBConnectionImpl {
     @Override
     protected void createConnection() {
 

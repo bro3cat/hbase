@@ -1,7 +1,7 @@
 package h_utils.dao;
 
 import h_utils.config.StaticConfiguration;
-import h_utils.pool.connection.HConnection;
+import h_utils.pool.connection.HBaseConnection;
 import h_utils.utils.Log;
 import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.client.*;
@@ -28,7 +28,7 @@ public class TableCommonUtilsBasic implements TableCommonUtils {
     /**
      * 用于HBase表连接的封装对象
      */
-    private HConnection hConnection;
+    private HBaseConnection hConnection;
 
     private Table table;
 
@@ -39,7 +39,7 @@ public class TableCommonUtilsBasic implements TableCommonUtils {
      * @param hConnection HConnection对象
      * @param tableName   要操作的表
      */
-    public TableCommonUtilsBasic(HConnection hConnection, String tableName) {
+    public TableCommonUtilsBasic(HBaseConnection hConnection, String tableName) {
         this.hConnection = hConnection;
         Log.say2("TableCommonUtilsBasic.[hConnection]", "set OK");
         admin = hConnection.getAdmin();

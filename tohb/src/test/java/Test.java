@@ -1,7 +1,7 @@
 import tohb.dao.Deprecated_DBDaoIn;
 import tohb.dao.mysql.Deprecated_MysqlDao;
 import tohb.pool.connection.DBConnection;
-import tohb.pool.connection.DBConnectionBasicMysql;
+import tohb.pool.connection.MysqlConnection;
 
 import java.util.*;
 import java.util.List;
@@ -30,7 +30,7 @@ public class Test {
         }
 //        mc.insertMany(list2);
 
-        DBConnection conn = new DBConnectionBasicMysql();
+        DBConnection conn = new MysqlConnection();
 
         Deprecated_DBDaoIn dao = new Deprecated_MysqlDao("test1", conn) {
         };

@@ -17,12 +17,12 @@ public class HBaseConnectionStatic {
 
     private static final HConfiguration configuration;
 
-    private static final HConnection NOTCLOSABLE_hConnection;
+    private static final HBaseConnection NOTCLOSABLE_hConnection;
 
     static {
         configuration = new HBaseConfigNaive(StaticConfiguration.hmaster);
         Log.say2("HBaseConfigNaive", "OK");
-        NOTCLOSABLE_hConnection = new HBaseConnectionBase(configuration);
+        NOTCLOSABLE_hConnection = new HBaseConnectionBasic(configuration);
         Log.say2("NOTCLOSABLE_hConnection", "OK");
     }
 
@@ -35,7 +35,7 @@ public class HBaseConnectionStatic {
         return null;
     }
 
-    public static HConnection get_NOTCLOSABLE_Connection() {
+    public static HBaseConnection get_NOTCLOSABLE_Connection() {
         Log.say2("get_NOTCLOSABLE_Connection", "OK");
         return NOTCLOSABLE_hConnection;
     }

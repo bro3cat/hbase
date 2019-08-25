@@ -6,21 +6,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class DBConnectionBasic implements DBConnection {
+public abstract class DBConnectionImpl implements DBConnection {
 
     protected DatabaseMetaData metaData = null;
     protected Connection connection = null;
 
     //    private DBConnection(){}
-    public DBConnectionBasic() {
+    public DBConnectionImpl() {
         createConnection();
+        getMetaData();
+    }
+
+    private void getMetaData() {
         try {
             metaData = connection.getMetaData();
-//            System.out.println(metaData);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+    ;
 
     protected abstract void createConnection();
 
@@ -109,4 +114,6 @@ public abstract class DBConnectionBasic implements DBConnection {
 
         return list;
     }
+
+
 }

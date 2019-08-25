@@ -5,11 +5,13 @@ import h_utils.dao.TableCommonUtilsBasic;
 import h_utils.dao.TableModifier;
 import h_utils.dao.TableStatus;
 import h_utils.pool.connection.HBaseConnectionStatic;
-import h_utils.pool.connection.HConnection;
+import h_utils.pool.connection.HBaseConnection;
 import h_utils.utils.Log;
 import org.apache.hadoop.hbase.client.Put;
-import tohb.dao.DBCommonUtilsBasic;
-import tohb.dao.DBCommonUtils;
+import tohb.dao.trans.DBTransUtilsBasic;
+import tohb.dao.trans.DBTransUtils;
+import tohb.pool.connection.DBConnection;
+import tohb.pool.connection.MysqlConnection;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -24,10 +26,10 @@ public abstract class Db2HTransServiceDB2HTable implements DB2HTransService {
     private String who = "";
     private String year_month_day_hour_minute_second = "";
     private long seconds = 0;
-    protected DBCommonUtils dbCommonDao;
+    protected DBTransUtils dbCommonDao;
     protected TableCommonUtils hBaseCommonDao;
 
-    protected void init(TableCommonUtils hBaseDao, DBCommonUtils dbCommonDao) {
+    protected void init(TableCommonUtils hBaseDao, DBTransUtils dbCommonDao) {
         this.hBaseCommonDao = hBaseDao;
         this.dbCommonDao = dbCommonDao;
     }
@@ -40,7 +42,7 @@ public abstract class Db2HTransServiceDB2HTable implements DB2HTransService {
      * @param dbName         如果针对库去读，则不必设置数据库名
      * @param tableName      关系数据库表名，如果针对库区读，则不需要设置表名
      */
-    public Db2HTransServiceDB2HTable(TableCommonUtils hBaseCommonDao, DBCommonUtils dbCommonDao, String dbName, String tableName) {
+    public Db2HTransServiceDB2HTable(TableCommonUtils hBaseCommonDao, DBTransUtils dbCommonDao, String dbName, String tableName) {
         //4个必须参数：
         //TableCommonUtils hbaseCommonDao
         //DBCommonDaoIn dbCommonDao
@@ -64,7 +66,6 @@ public abstract class Db2HTransServiceDB2HTable implements DB2HTransService {
 
     @Override
     public abstract void userService();
-
 
 
     /**
@@ -269,12 +270,13 @@ public abstract class Db2HTransServiceDB2HTable implements DB2HTransService {
 
     private static DB2HTransService getService() throws IOException {
         //HBaseConnection
-        HConnection hConnection = HBaseConnectionStatic.get_NOTCLOSABLE_Connection();
+        HBaseConnection hConnection = HBaseConnectionStatic.get_NOTCLOSABLE_Connection();
         //HBaseUtils
         TableCommonUtils utils = new TableCommonUtilsBasic(hConnection, "hcdata9");
 //        utils.scanTable(utils.currentTable(), StaticConfiguration.DEFAULT_SCAN);
         //DatabaseDao
-        DBCommonUtils dbCommonDao = new DBCommonUtilsBasic();
+        DBConnection dbConnection = new MysqlConnection();
+        DBTransUtils dbCommonDao = new DBTransUtilsBasic(dbConnection);
         //Service
         DB2HTransService service = new Db2HTransServiceDB2HTable(utils, dbCommonDao, "casia", null) {
             @Override
