@@ -7,11 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="tohb" />
+        <module name="sqldbutils" />
+        <module name="service" />
+        <module name="utils" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
-      <module name="hadooputils" target="6" />
-      <module name="tohb" target="7" />
+      <module name="hadooputils" target="8" />
+      <module name="service" target="8" />
+      <module name="sqldbutils" target="8" />
+      <module name="tohb" target="8" />
+      <module name="utils" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

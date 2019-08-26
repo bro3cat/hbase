@@ -17,8 +17,8 @@ public class TableCommonUtilsBasic implements TableCommonUtils {
     /**
      * 不可实例化
      */
-    private TableCommonUtilsBasic() {
-    }
+//    private TableCommonUtilsBasic() {
+//    }
 
     /**
      * 用于对表进行操作的Admin内置对象
@@ -44,6 +44,10 @@ public class TableCommonUtilsBasic implements TableCommonUtils {
         Log.say2("TableCommonUtilsBasic.[hConnection]", "set OK");
         admin = hConnection.getAdmin();
         setTable(tableName);
+    }
+
+    public TableCommonUtilsBasic() {
+        
     }
 
     @Override

@@ -22,6 +22,9 @@
     </build>
     <modules>
         <module>tohb</module>
+        <module>sqldbutils</module>
+        <module>utils</module>
+        <module>service</module>
     </modules>
 
     <dependencies>

@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/hadooputils.iml" filepath="$PROJECT_DIR$/hadooputils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sqldbutils/sqldbutils.iml" filepath="$PROJECT_DIR$/sqldbutils/sqldbutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/tohb/tohb.iml" filepath="$PROJECT_DIR$/tohb/tohb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utils/utils.iml" filepath="$PROJECT_DIR$/utils/utils.iml" />
     </modules>
   </component>
 </project>

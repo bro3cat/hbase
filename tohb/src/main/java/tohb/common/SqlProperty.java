@@ -1,8 +1,8 @@
 package tohb.common;
 
 
-import h_utils.config.Property;
 import h_utils.config.StaticConfiguration;
+import utils.Property;
 
 public class SqlProperty extends Property {
 
@@ -32,8 +32,8 @@ public class SqlProperty extends Property {
     public SqlProperty(String propertyFilePath) {
         super(propertyFilePath);
         url = generateURL(propertyFilePath);
-        user = getLoadProperty("mysql_db.user");
-        password = getLoadProperty("mysql_db.password");
+        user = getProperty("mysql_db.user");
+        password = getProperty("mysql_db.password");
 
     }
 
@@ -41,9 +41,9 @@ public class SqlProperty extends Property {
         String url = "jdbc:mysql://";
         if (StaticConfiguration.mysql_property.equals(propertyFilePath))
             url = "jdbc:mysql://";
-        String host = getLoadProperty("mysql_db.host");
-        String port = getLoadProperty("mysql_db.port");
-        String name = getLoadProperty("mysql_db.name");
+        String host = getProperty("mysql_db.host");
+        String port = getProperty("mysql_db.port");
+        String name = getProperty("mysql_db.name");
 //        url = url + host + ":" + port + "/" + name + "?useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&characterEncoding=UTF-8&autoReconnect=true";
         url = url + host + ":" + port + "/?useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&characterEncoding=UTF-8&autoReconnect=true";
         return url;

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class MysqlConnection extends DBConnectionImpl {
 
-    private SqlProperty property;//= new Property(StaticConfiguration.mysql_property);
+    private SqlProperty property;
 
     /**
      * test
